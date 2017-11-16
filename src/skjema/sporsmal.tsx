@@ -83,6 +83,7 @@ function prepMarkerAlternativ(
     }
 }
 
+/* Kandidat til å erstattes med mapping */
 function leggTilMellomTekst(sporsmalId: number, besvarelse: BesvarelseModell[]) {
     if (sporsmalId === 14) {
         const be = besvarelse.filter(b => b.sporsmalId === 12 || b.sporsmalId === 11)
@@ -99,6 +100,7 @@ function leggTilMellomTekst(sporsmalId: number, besvarelse: BesvarelseModell[]) 
     return null;
 }
 
+/* Kandidat til å erstattes med mapping */
 function sjekkOmAlternativErMulig(sporsmalId: number,
                                   alternativ: SvarAlternativModell, markerteAlternativer: SvarAlternativModell[]) {
     if (sporsmalId === 16 && alternativ.id !== '1601') {
@@ -109,6 +111,7 @@ function sjekkOmAlternativErMulig(sporsmalId: number,
     return true;
 }
 
+/* Kandidat til å erstattes med mapping */
 function sjekkAvhengigheter(sporsmalId: number, svarteAlternativ: SvarAlternativModell[]): number {
     const avhengighet: AvhengighetModell | undefined = Avhengigheter.find(avh => avh.sporsmalId === sporsmalId);
     if ( !!avhengighet &&
@@ -125,7 +128,7 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
         super(props);
         this.state = {feil: false};
     }
-
+    /* Denne utgår evt med scrollview */
     componentDidUpdate() {
         if (this.props.isActive) {
             document.getElementById(`sp-${this.props.sporsmal.id}`)!.focus();
@@ -170,6 +173,8 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
                     const erValgt = !!markerteAlternativer.find(
                         alt => alt.id === alternativ.id
                     );
+
+                    /* Kandidat til å erstattes med mapping */
                     const erMulig = sjekkOmAlternativErMulig(sporsmal.id, alternativ, markerteAlternativer);
                     return (
                         <Alternativ
