@@ -8,3 +8,6 @@ export const skalaHjelpetekst =
 
 export const hjelpeTekst =
     'Papiravis, oppslagstavler, butikkvinduer mm.';
+
+export const ikkeIntervjuMellomtekst = 'Dersom du ikke har vært på et intervju før,' +
+    'forestill deg at du har vært det, og svar på de neste spørsmålene ut fra det';

@@ -2,6 +2,7 @@ import * as React from 'react';
 import SvarAlternativModell from '../sporsmal/svaralternativ';
 import { AlternativTyper } from '../utils/konstanter';
 import OverskriftMedHjelpeTekst from './overskrift-med-hjelpetekst';
+import { hjelpeTekst } from '../tekster/hjelptetekster';
 
 interface AlternativProps {
     alternativ: SvarAlternativModell;
@@ -9,9 +10,10 @@ interface AlternativProps {
     markerAlternativ: () => void;
     sporsmalId: number;
     sporsmalType: AlternativTyper;
+    kanVelges: boolean;
 }
 
-function Alternativ({ alternativ, erValgt, markerAlternativ, sporsmalId, sporsmalType }: AlternativProps) {
+function Alternativ({ alternativ, erValgt, markerAlternativ, sporsmalId, sporsmalType, kanVelges }: AlternativProps) {
     const skalHaHjelpetekst: boolean = alternativ.id === '0111';
     return (
         <div key={alternativ.id} className="svar">
@@ -28,17 +30,17 @@ function Alternativ({ alternativ, erValgt, markerAlternativ, sporsmalId, sporsma
             />
             <label
                 htmlFor={alternativ.id}
-                className={`svar__label ${erValgt
+                className={`svar__label ${kanVelges ? erValgt
                     ? 'markert'
-                    : ''}`}
+                    : '' : 'disabled'}`}
                 onClick={e => {
                     e.preventDefault();
-                    markerAlternativ();
+                    if (kanVelges) {markerAlternativ(); }
                 }}
             >
                 {alternativ.tekst}
                 {skalHaHjelpetekst &&
-                <OverskriftMedHjelpeTekst overskriftId="" hjelpetekstId="F.eks I papiraviser"/>}
+                <OverskriftMedHjelpeTekst overskriftId="" hjelpetekstId={hjelpeTekst}/>}
             </label>
         </div>
     );

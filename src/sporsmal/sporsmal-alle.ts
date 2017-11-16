@@ -188,11 +188,11 @@ const spm: SporsmalModell[] = [
         id: 15,
         sporsmal: 'Hvor trygg er du i en intervjusituasjon?',
         alternativer: [
-            { id: '1601', tekst: 'Jeg føler meg ikke trygg eller konfortabel i intervju'},
-            { id: '1602', tekst: 'Jeg føler meg litt utrygg i intervju' },
-            { id: '1603', tekst: 'Jeg føler meg litt trygg i intervju' },
-            { id: '1604', tekst: 'Jeg føler meg ganske trygg i intervju' },
-            { id: '1605', tekst: 'Jeg føler meg veldig trygg i intervju' }
+            { id: '1501', tekst: 'Jeg føler meg ikke trygg eller konfortabel i intervju'},
+            { id: '1502', tekst: 'Jeg føler meg litt utrygg i intervju' },
+            { id: '1503', tekst: 'Jeg føler meg litt trygg i intervju' },
+            { id: '1504', tekst: 'Jeg føler meg ganske trygg i intervju' },
+            { id: '1505', tekst: 'Jeg føler meg veldig trygg i intervju' }
         ],
         type: AlternativTyper.ETTVALG
     },
@@ -201,22 +201,22 @@ const spm: SporsmalModell[] = [
         sporsmal: 'Hvor trygg er du i en intervjusituasjon?',
         alternativer: [
             {
-                id: '1701',
+                id: '1601',
                 tekst: 'Forbereder meg ikke, tar det som det kommer'
             },
-            { id: '1702', tekst: 'Vet ikke hvordan man forbereder seg' },
-            { id: '1703', tekst: 'Tenker igjennom hvordan jeg skal kle meg' },
+            { id: '1602', tekst: 'Vet ikke hvordan man forbereder seg' },
+            { id: '1603', tekst: 'Tenker igjennom hvordan jeg skal kle meg' },
             {
-                id: '1704',
+                id: '1604',
                 tekst:
                     'Tenker igjennom hvordan jeg skal oppføre meg (kroppspråk)'
             },
-            { id: '1705', tekst: 'Leser om bedriften på forhånd' },
+            { id: '1605', tekst: 'Leser om bedriften på forhånd' },
             {
-                id: '1706',
+                id: '1606',
                 tekst: 'Leser utlysningsteksten og søknaden på nytt'
             },
-            { id: '1707', tekst: 'Øver på å presentere meg selv' }
+            { id: '1607', tekst: 'Øver på å presentere meg selv' }
         ],
         type: AlternativTyper.FLERVALG
     },
@@ -224,11 +224,12 @@ const spm: SporsmalModell[] = [
         id: 17,
         sporsmal: 'Hvordan pleier du å gjøre det på intervju?',
         alternativer: [
-            { id: '1801', tekst: '1', skalaId: 1 },
-            { id: '1802', tekst: '2', skalaId: 2 },
-            { id: '1803', tekst: '3', skalaId: 3 },
-            { id: '1804', tekst: '4', skalaId: 4 },
-            { id: '1805', tekst: '5', skalaId: 5 }
+            { id: '1701', tekst: '1', skalaId: 1 },
+            { id: '1702', tekst: '2', skalaId: 2 },
+            { id: '1703', tekst: '3', skalaId: 3 },
+            { id: '1704', tekst: '4', skalaId: 4 },
+            { id: '1705', tekst: '5', skalaId: 5 },
+            { id: '1706', tekst: '6', skalaId: 6 }
         ],
         type: AlternativTyper.SKALA
     },
@@ -236,15 +237,15 @@ const spm: SporsmalModell[] = [
         id: 18,
         sporsmal: 'Hva har du gjort for å øke sjansene dine for å få en jobb?',
         alternativer: [
-            { id: '1901', tekst: 'Tatt interessetester' },
-            { id: '1902', tekst: 'Benyttet meg av nettverket mitt' },
-            { id: '1903', tekst: 'Gått på jobbsøkerkurs' },
-            { id: '1904', tekst: 'Søkt jobb i flere bransjer' },
-            { id: '1905', tekst: 'Tatt kurs etter utdanning' },
-            { id: '1906', tekst: 'Søkt jobber andre steder i landet' },
-            { id: '1907', tekst: 'Engasjert meg i frivillig arbeid' },
-            { id: '1908', tekst: 'Annet' },
-            { id: '1909', tekst: 'Ikke noe spesielt' }
+            { id: '1801', tekst: 'Tatt interessetester' },
+            { id: '1802', tekst: 'Benyttet meg av nettverket mitt' },
+            { id: '1803', tekst: 'Gått på jobbsøkerkurs' },
+            { id: '1804', tekst: 'Søkt jobb i flere bransjer' },
+            { id: '1805', tekst: 'Tatt kurs etter utdanning' },
+            { id: '1806', tekst: 'Søkt jobber andre steder i landet' },
+            { id: '1807', tekst: 'Engasjert meg i frivillig arbeid' },
+            { id: '1808', tekst: 'Annet' },
+            { id: '1809', tekst: 'Ikke noe spesielt' }
         ],
         type: AlternativTyper.FLERVALG
     },
@@ -252,11 +253,11 @@ const spm: SporsmalModell[] = [
         id: 19,
         sporsmal: 'Hvordan vurderer du din egen innsats som jobbsøker?',
         alternativer: [
-            { id: '2001', tekst: 'Har ikke begynt å søkte jobber enda' },
-            { id: '2002', tekst: 'Ikke fornøyd med egen innsats' },
-            { id: '2003', tekst: 'Kan gjøre en større innsats' },
-            { id: '2004', tekst: 'Synes jeg har gjort en brukbar jobb' },
-            { id: '2005', tekst: 'Er veldig fornøyd med egen innsats' }
+            { id: '1901', tekst: 'Har ikke begynt å søkte jobber enda' },
+            { id: '1902', tekst: 'Ikke fornøyd med egen innsats' },
+            { id: '1903', tekst: 'Kan gjøre en større innsats' },
+            { id: '1904', tekst: 'Synes jeg har gjort en brukbar jobb' },
+            { id: '1905', tekst: 'Er veldig fornøyd med egen innsats' }
         ],
         type: AlternativTyper.ETTVALG
     }

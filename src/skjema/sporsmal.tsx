@@ -6,7 +6,7 @@ import { Dispatch } from '../types';
 import { AppState } from '../reducer';
 import {
     ettValgHjelpetekst,
-    flereValgHjelpetekst,
+    flereValgHjelpetekst, ikkeIntervjuMellomtekst,
     skalaHjelpetekst
 } from '../tekster/hjelptetekster';
 import SvarAlternativModell from '../sporsmal/svaralternativ';
@@ -39,6 +39,8 @@ interface OwnProps {
     isActive: boolean;
     sporsmal: SporsmalModell;
     feil?: boolean;
+    gaTilNesteSpm: (id: number) => void;
+    spmRef: any; // tslint:disable-line:no-any
 }
 
 interface StateProps {
@@ -81,6 +83,32 @@ function prepMarkerAlternativ(
     }
 }
 
+function leggTilMellomTekst(sporsmalId: number, besvarelse: BesvarelseModell[]) {
+    if (sporsmalId === 14) {
+        const be = besvarelse.filter(b => b.sporsmalId === 12 || b.sporsmalId === 11)
+        if (!!be) {
+            if (!!be.filter(b => b.svarAlternativer.find(svar => svar.id === '1101' || svar.id === '1201'))) {
+                return (
+                    <section>
+                        {ikkeIntervjuMellomtekst}
+                    </section>
+                );
+            }
+        }
+    }
+    return null;
+}
+
+function sjekkOmAlternativErMulig(sporsmalId: number,
+                                  alternativ: SvarAlternativModell, markerteAlternativer: SvarAlternativModell[]) {
+    if (sporsmalId === 16 && alternativ.id !== '1601') {
+        if (markerteAlternativer.find(a => a.id === '1601')) {
+            return false;
+        }
+    }
+    return true;
+}
+
 function sjekkAvhengigheter(sporsmalId: number, svarteAlternativ: SvarAlternativModell[]): number {
     const avhengighet: AvhengighetModell | undefined = Avhengigheter.find(avh => avh.sporsmalId === sporsmalId);
     if ( !!avhengighet &&
@@ -98,25 +126,29 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
         this.state = {feil: false};
     }
 
+    componentDidUpdate() {
+        if (this.props.isActive) {
+            document.getElementById(`sp-${this.props.sporsmal.id}`)!.focus();
+        }
+    }
+
     sjekkSvar(markerteSpm: SvarAlternativModell[], sporsmalId: number) {
         if (markerteSpm.length === 0) {
             this.setState({feil: true});
         } else if (sjekkAvhengigheter(sporsmalId, markerteSpm) > 0) {
-            document.getElementById(`sp-${sjekkAvhengigheter(sporsmalId, markerteSpm)}`)!.scrollIntoView();
-            window.scrollBy(0, -300);
+            this.props.gaTilNesteSpm(sjekkAvhengigheter(sporsmalId, markerteSpm) - 1);
         } else {
-            const nesteSpmId = sporsmalId + 1;
-            document.getElementById(`sp-${nesteSpmId}`)!.scrollIntoView();
-            window.scrollBy(0, -300);
+                this.props.gaTilNesteSpm(sporsmalId);
         }
     }
 
     render() {
-        const { sporsmal, besvarteSporsmal, markerAlternativ, isActive  } = this.props;
+        const { sporsmal, besvarteSporsmal, markerAlternativ, isActive, spmRef  } = this.props;
         const hjelpetekst: string = finnHjelpetekst(sporsmal.type);
         const besvartSpm: BesvarelseModell | undefined = besvarteSporsmal.find(
             besvarelse => besvarelse.sporsmalId === sporsmal.id
         );
+        const alleBesvarteSpm = [...besvarteSporsmal];
         const markerteAlternativer: SvarAlternativModell[] = besvartSpm
             ? besvartSpm.svarAlternativer
             : [];
@@ -125,7 +157,9 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
             this.setState({feil: false});
         }
         return (
-            <li ref={'spm-' + sporsmal.id} id={'sp-' + sporsmal.id} className={cls}>
+                <div>
+                    {leggTilMellomTekst(sporsmal.id, alleBesvarteSpm)}
+            <li ref={spmRef} tabIndex={0} id={'sp-' + sporsmal.id} className={cls} >
                 <h1 className="typo-element blokk-xs">{sporsmal.id + '.' + ' ' + sporsmal.sporsmal}</h1>
                 {this.state.feil && <p className="skjemaelement__feilmelding">
                     Du må svare på spørsmålet før du kan gå videre</p>}
@@ -136,6 +170,7 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
                     const erValgt = !!markerteAlternativer.find(
                         alt => alt.id === alternativ.id
                     );
+                    const erMulig = sjekkOmAlternativErMulig(sporsmal.id, alternativ, markerteAlternativer);
                     return (
                         <Alternativ
                             key={alternativ.id}
@@ -143,6 +178,7 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
                             erValgt={erValgt}
                             sporsmalId={sporsmal.id}
                             sporsmalType={sporsmal.type}
+                            kanVelges={erMulig}
                             markerAlternativ={() => markerAlternativ(
                                 sporsmal.id,
                                 prepMarkerAlternativ(
@@ -167,7 +203,7 @@ class Sporsmal extends React.Component<SporsmalProps, EgenStateProps> {
                     Fortsett
                 </button>
             </li>
-        );
+                </div>);
     }
 }
 
@@ -183,4 +219,4 @@ const mapDispatchToProps = (
         dispatch(marker(sporsmalId, alternativ))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sporsmal);
+export default connect(mapStateToProps, mapDispatchToProps, null, { withRef: true })(Sporsmal);
