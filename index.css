@@ -1328,6 +1328,9 @@ body .blokk-xl {
     border-bottom: 3px solid #FFBD66;
   }
 }
+body {
+  background-color: #f7fcff;
+}
 .limit {
   margin: 1rem auto;
   width: calc(100% - 2rem);
@@ -1432,6 +1435,7 @@ form ul li {
 }
 .resultatliste {
   list-style: none;
+  -webkit-padding-start: 0;
 }
 .resultatliste .sporsmal__besvarelse {
   border: 1px solid #3385d1;
@@ -1444,4 +1448,21 @@ form ul li {
 .alternativer {
   display: flex;
   flex-direction: column;
+}
+/* RESULTATSIDE */
+.resultatside {
+  padding: 1rem;
+}
+.resultatside .overskrift__tema {
+  padding: 2rem;
+}
+.resultatside .temaliste {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  -webkit-padding-start: 0;
+}
+.resultatside .temaliste .tema {
+  background-color: #e6f5fa;
+  padding: 1rem;
 }
