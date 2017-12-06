@@ -1328,141 +1328,155 @@ body .blokk-xl {
     border-bottom: 3px solid #FFBD66;
   }
 }
-body {
-  background-color: #f7fcff;
-}
-.limit {
-  margin: 1rem auto;
-  width: calc(100% - 2rem);
-  height: 100%;
+.sporsmalsliste {
+  list-style: none;
+  padding: 0;
 }
 .sporsmal {
-  opacity: 0.2;
   margin: 2rem 0;
-  transition: opacity 300ms ease-in-out;
-  height: 100%;
 }
 .sporsmal:first-child {
   margin-top: 1rem;
-}
-.sporsmal.active {
-  opacity: 1;
 }
 .sporsmal:focus {
   outline: none;
   box-shadow: none;
 }
-form {
-  height: 100%;
+.sporsmal__paginering {
+  display: none;
 }
-form ul {
-  height: 100%;
-  padding: 0;
-  list-style: none;
+.sporsmal__start {
+  text-align: center;
+}
+.sporsmal__ingress {
+  margin-bottom: 1rem;
+}
+.sporsmal__knapp {
+  margin: 0 auto;
+  display: block;
+  width: 52px;
+  height: 52px;
+  background-color: #0067C5;
+  border-radius: 50%;
+  font: 0/0 a;
+  color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.sporsmal__knapp:before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-top: -2px;
+  border-bottom: 2px solid #FFF;
+  border-right: 2px solid #FFF;
+  transform: rotate(45deg);
+}
+.sporsmal__videre {
+  display: none;
+}
+.sporsmal__start {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  z-index: 100;
 }
-form ul li {
-  flex-grow: 1;
-  flex-basis: 100%;
+.sporsmal__start .sporsmal__paginering {
+  display: inline;
+  margin-top: 0.5rem;
 }
-.sporsmalsliste {
+.sporsmal__start .sporsmal__videre {
+  display: block;
+  margin-bottom: 4rem;
+  animation: sprett 2s infinite alternate;
+}
+@keyframes sprett {
+  30%,
+  100% {
+    transform: translate(0px, -10px);
+  }
+}
+.alternativer {
   list-style: none;
   padding: 0;
-  margin: 200px 0 300px;
-  height: 100%;
 }
-.svarliste {
+.alternativer .alternativ {
   list-style: none;
   padding: 0;
 }
-.skjemaelement__feilmelding {
-  font-style: italic;
-  color: #BA3A26;
-}
-.hjelpetekst {
-  color: #3E3832;
-}
-.svar {
-  margin: 0.5rem 0;
-}
-.svar .svar__radio {
+.alternativer .alternativ .alternativ__radio {
   position: absolute;
   opacity: 0;
   height: 0;
   width: 0;
 }
-.svar .svar__radio + .svar__label {
+.alternativer .alternativ .alternativ__radio + .alternativ__label {
   display: flex;
   justify-content: space-between;
-  border: 1px solid #B7B1A9;
+  border-top: 1px solid #B7B1A9;
   padding: 0.5rem 1rem;
   width: 100%;
 }
-.svar .svar__radio + .svar__label:hover {
+.alternativer .alternativ .alternativ__radio + .alternativ__label:hover {
   background-color: #E9E7E7;
 }
-.svar .svar__radio + .markert {
+.alternativer .alternativ .alternativ__radio + .markert {
   background-color: #0067C5;
   color: #FFF;
 }
-.svar .svar__radio + .markert:hover {
+.alternativer .alternativ .alternativ__radio + .markert:hover {
   background-color: #0067C5;
 }
-.svar .svar__radio + .disabled {
+.alternativer .alternativ .alternativ__radio + .disabled {
   background-color: #E9E7E7;
   color: black;
 }
-.svar .svar__radio:checked + .svar__label {
+.alternativer .alternativ .alternativ__radio:checked + .alternativ__label {
   background-color: #cce1f3;
 }
-.svar .svar__radio:focus + .svar__label {
+.alternativer .alternativ .alternativ__radio:focus + .alternativ__label {
   outline: none;
   box-shadow: 0 0 0 3px #FFBD66;
 }
-.svar .overskrift-med-hjelpetekst {
+.alternativer .alternativ .overskrift-med-hjelpetekst {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.svar .overskrift-med-hjelpetekst svg {
+.alternativer .alternativ .overskrift-med-hjelpetekst svg {
   height: 16px;
   width: 16px;
 }
-.svar .overskrift-med-hjelpetekst .hjelpetekst {
-  height: 18px;
-  padding-left: 0.5rem;
-}
 .resultatliste {
   list-style: none;
-  -webkit-padding-start: 0;
 }
 .resultatliste .sporsmal__besvarelse {
   border: 1px solid #3385d1;
   padding: 1rem;
   margin-top: 1rem;
 }
-.knapp + .knapp--hoved {
-  margin-left: 1rem;
+html {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
 }
-.alternativer {
-  display: flex;
-  flex-direction: column;
+html,
+body {
+  height: 100%;
 }
-/* RESULTATSIDE */
-.resultatside {
-  padding: 1rem;
+body {
+  background-color: #e0f5fb;
 }
-.resultatside .overskrift__tema {
-  padding: 2rem;
+.limit {
+  margin: 1rem auto;
+  height: 100%;
 }
-.resultatside .temaliste {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  -webkit-padding-start: 0;
-}
-.resultatside .temaliste .tema {
-  background-color: #e6f5fa;
-  padding: 1rem;
+.skjemaelement__feilmelding {
+  font-style: italic;
+  color: #BA3A26;
 }
