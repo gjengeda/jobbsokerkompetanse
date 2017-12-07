@@ -1328,6 +1328,139 @@ body .blokk-xl {
     border-bottom: 3px solid #FFBD66;
   }
 }
+.ekspanderbartPanel__hode {
+  background: none;
+  border: 0px;
+  width: 100%;
+  background-color: #FFF;
+  display: block;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 4px;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+  color: #3E3832;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+.ekspanderbartPanel__hode:hover,
+.ekspanderbartPanel__hode--hover {
+  box-shadow: #B7B1A9 0 2px 1px 0;
+  color: #005B82;
+}
+.ekspanderbartPanel__hode:focus,
+.ekspanderbartPanel__hode--focus {
+  box-shadow: 0 0 0px 3px #FFBD66;
+  outline: none;
+}
+.ekspanderbartPanel__hode:hover .ekspanderbartPanel__heading,
+.ekspanderbartPanel__hode--hover .ekspanderbartPanel__heading {
+  text-decoration: underline;
+}
+.ekspanderbartPanel__flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ekspanderbartPanel__innhold {
+  background-color: #FFF;
+  display: block;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 4px;
+  padding-top: 0.5rem;
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator {
+  display: inline-block;
+  flex-shrink: 0;
+  height: 2px;
+  line-height: 2px;
+  width: 20px;
+  position: relative;
+  text-align: center;
+  transition: 200ms transform;
+  vertical-align: middle;
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:before,
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:after {
+  transition: 200ms transform;
+  border-radius: 10px;
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: currentColor;
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background: currentColor;
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:before {
+  transform: translateX(2px) rotate(45deg);
+}
+.ekspanderbartPanel--lukket .ekspanderbartPanel__indikator:after {
+  transform: translateX(-2px) rotate(-45deg);
+}
+.ekspanderbartPanel--apen .ekspanderbartPanel__hode {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ekspanderbartPanel--apen .ekspanderbartPanel__innhold {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.ekspanderbartPanel--apen .ekspanderbartPanel__hode:hover:not(:focus),
+.ekspanderbartPanel--apen .ekspanderbartPanel__hode--hover:not(.ekspanderbartPanel__hode--focus) {
+  box-shadow: none;
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator {
+  display: inline-block;
+  flex-shrink: 0;
+  height: 2px;
+  line-height: 2px;
+  width: 20px;
+  position: relative;
+  text-align: center;
+  transition: 200ms transform;
+  vertical-align: middle;
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:before,
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:after {
+  transition: 200ms transform;
+  border-radius: 10px;
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: currentColor;
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background: currentColor;
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:before {
+  transform: translateX(2px) rotate(-45deg);
+}
+.ekspanderbartPanel--apen > .ekspanderbartPanel__hode .ekspanderbartPanel__indikator:after {
+  transform: translateX(-2px) rotate(45deg);
+}
 .sporsmalsliste {
   list-style: none;
   padding: 0;
@@ -1461,6 +1594,26 @@ body .blokk-xl {
   border: 1px solid #3385d1;
   padding: 1rem;
   margin-top: 1rem;
+  -webkit-padding-start: 0;
+}
+.overskrift__tema {
+  margin: auto;
+}
+.temaliste {
+  list-style: none;
+  -webkit-padding-start: 0;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.temaliste .enkelt__tema .aktivitet ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+}
+.temaliste .enkelt__tema .aktivitet ul li {
+  font-weight: normal;
+  padding-bottom: 0;
 }
 html {
   font-family: 'Source Sans Pro', Arial, sans-serif;
