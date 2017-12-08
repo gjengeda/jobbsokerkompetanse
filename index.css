@@ -1466,7 +1466,7 @@ body .blokk-xl {
   justify-content: space-between;
   flex-direction: column;
   position: fixed;
-  background-color: #e0f5fb;
+  background-color: #ecf7fb;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1584,6 +1584,26 @@ body .blokk-xl {
   border-right: 2px solid #FFF;
   transform: rotate(45deg);
 }
+.sporsmal__knapp__tilbake {
+  margin: 1rem auto;
+  display: block;
+  width: 20px;
+  height: 20px;
+  font: 0/0 a;
+  background-color: #ecf7fb;
+  border: 0;
+  cursor: pointer;
+}
+.sporsmal__knapp__tilbake:before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-top: -2px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  transform: rotate(45deg);
+}
 .alternativer {
   list-style: none;
   padding: 0;
@@ -1650,6 +1670,7 @@ body .blokk-xl {
 .resultatside {
   color: #3e3832;
   padding: 0 1.375rem 0;
+  background-color: #ecf7fb;
 }
 .resultatside .resultatliste {
   list-style: none;
@@ -1679,6 +1700,26 @@ body .blokk-xl {
   font-weight: normal;
   padding-bottom: 0;
 }
+.resultatside .resultat__info {
+  text-align: center;
+}
+.resultatside .resultat__infotekst {
+  text-align: center;
+  font-size: 1.125rem;
+}
+.resultatside .knapp__startigjen {
+  text-align: center;
+}
+.resultatside .innholdscontainer {
+  width: 100%;
+  height: 10rem;
+  background-color: white;
+  padding: 2rem 1rem;
+}
+.resultatside .innholdscontainer h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
 html {
   font-family: 'Source Sans Pro', Arial, sans-serif;
 }
@@ -1687,7 +1728,7 @@ body {
   height: 100%;
 }
 body {
-  background-color: yellow;
+  background-color: #ecf7fb;
 }
 .limit {
   margin: 1rem auto;
